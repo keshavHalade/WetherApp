@@ -1,6 +1,6 @@
 
 body {
-    background-color: #846bf4;
+    background-color:skyblue;
     color: rgb(14, 1, 1);
 }
 
@@ -9,11 +9,13 @@ body {
     font-size: 3rem;
     font-weight: 800;
     text-align: center;
+    text-shadow: rgb(160, 136, 74) 0px 3px;
 }
 
 .sec-header{
     text-align: center;
-    color: rgb(245, 241, 241);
+    color:black ;
+    text-shadow: rgb(241, 239, 234) 0px 2.5px;
     font-size: 30px;
     font-weight: 900;
 }
