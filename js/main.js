@@ -4,7 +4,7 @@ var forecastEl = document.getElementsByClassName("card-section");
 let obj = document.getElementsByClassName("option");
 
 
-
+// This function is used to create a child elecment for select tag
 const setOptions = (result) => {
     result.forEach( e => {
        obj = document.createElement("option");
@@ -13,7 +13,7 @@ const setOptions = (result) => {
         citiesName.appendChild(obj);               
     })
 }
-
+// This function fetch the names and their coordinate values and separte a city name and coordinated from CSV file
 const setCityNames = () => {
   fetch("./js/city_coordinates.csv")
         .then(res => res.text())
@@ -28,6 +28,8 @@ const setCityNames = () => {
 
 setCityNames();
 
+
+//This function gives the coordinates of the selected cities
 const getCoordinates = () =>{
                     citiesName.onchange = function () {
                           let [long, lati] = citiesName.value.split(",");
@@ -35,6 +37,7 @@ const getCoordinates = () =>{
                     }
 }
 
+// This function featch weather data as per the long and lati values 
 function getWeatherDetails(long,lati){
         fetch(`https://www.7timer.info/bin/api.pl?lon=${long}&lat=${lati}&product=civillight&output=json`)
                 .then(res => res.json())
@@ -53,6 +56,7 @@ function getWeatherDetails(long,lati){
       
 }
 
+// This function create a HTML card 
 function createCard(e){     
             let [icon,description] = getweatherIcon(e.weather);
              let fday = `<div class="card">
@@ -69,6 +73,7 @@ function createCard(e){
          return fday;
 }
 
+// This function returns a date and day name
 function getDate(d){
     const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
     const days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
@@ -87,7 +92,7 @@ function getDate(d){
 }
 
 
-
+// This function returns a weather images and description 
 function getweatherIcon(weather){
     let icon;
     let description;
